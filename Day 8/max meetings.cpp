@@ -1,0 +1,21 @@
+int maxMeetings(int start[], int end[], int n)
+    {
+        // Your code here
+        vector<pair<int,int>> v; 
+        for(int i=0;i<n;i++)
+        {
+            v.push_back(make_pair(end[i],start[i]));
+        }
+        sort(v.begin(),v.end());
+        int res=1;
+        int prev=v[0].first;
+        for(int curr=1;curr<n;curr++)
+        {
+             if(v[curr].second>prev)
+             {
+                 res++;
+                 prev=v[curr].first;
+             }
+        }
+        return res;
+    }
